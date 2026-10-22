@@ -15,6 +15,33 @@
 
     * { box-sizing: border-box; }
 
+    nav {
+      position: fixed;
+      z-index: 2;
+      top: 1.25rem;
+      left: 50%;
+      display: flex;
+      gap: .35rem;
+      padding: .4rem;
+      transform: translateX(-50%);
+      border: 1px solid #ffffff20;
+      border-radius: 999px;
+      background: #11122699;
+      backdrop-filter: blur(16px);
+    }
+
+    nav a {
+      padding: .65rem 1rem;
+      border-radius: 999px;
+      color: #c6c6dd;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    nav a:hover, nav a[aria-current="page"] { color: #fff; background: #ffffff16; }
+    nav a:focus-visible { outline: 2px solid #76f0df; outline-offset: 3px; }
+
     body {
       min-height: 100svh;
       margin: 0;
@@ -118,6 +145,11 @@
   </style>
 </head>
 <body>
+  <nav aria-label="Main navigation">
+    <a href="hello.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main>
     <div class="sparkle" aria-hidden="true">✦</div>
     <h1><span>Hello,</span><br>world!</h1>
