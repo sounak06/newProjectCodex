@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101126">
+  <title>Hello, world! ✦</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #101126;
+      color: #f8f7ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 18% 20%, #7448ff55, transparent 38%),
+        radial-gradient(ellipse at 82% 76%, #00d4c055, transparent 34%),
+        linear-gradient(135deg, #111226 0%, #17152e 52%, #101b2a 100%);
+      padding: 1.5rem;
+    }
+
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 22rem;
+      aspect-ratio: 1;
+      border: 1px solid #ffffff12;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    body::before { top: -11rem; right: -7rem; box-shadow: 0 0 0 2.5rem #ffffff05, 0 0 0 5rem #ffffff03; }
+    body::after { bottom: -15rem; left: -8rem; width: 30rem; box-shadow: 0 0 0 3rem #ffffff04; }
+
+    main {
+      position: relative;
+      width: min(100%, 680px);
+      padding: clamp(2.25rem, 7vw, 5rem);
+      text-align: center;
+      border: 1px solid #ffffff24;
+      border-radius: 2rem;
+      background: linear-gradient(145deg, #ffffff12, #ffffff06);
+      box-shadow: 0 30px 100px #05061188, inset 0 1px #ffffff20;
+      backdrop-filter: blur(20px);
+      animation: arrive 900ms cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .sparkle {
+      display: inline-grid;
+      place-items: center;
+      width: 3.5rem;
+      aspect-ratio: 1;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ffffff24;
+      border-radius: 1.1rem;
+      background: linear-gradient(135deg, #9d7bff40, #4cf0d340);
+      color: #d9ceff;
+      font-size: 1.5rem;
+      box-shadow: 0 0 36px #9d7bff30;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -.065em;
+      font-weight: 760;
+    }
+
+    h1 span {
+      color: transparent;
+      background: linear-gradient(100deg, #b9a5ff 10%, #76f0df 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    p {
+      max-width: 28rem;
+      margin: 1.25rem auto 0;
+      color: #c6c6dd;
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      line-height: 1.7;
+    }
+
+    .rule {
+      width: 3rem;
+      height: 2px;
+      margin: 2rem auto 0;
+      border-radius: 9px;
+      background: linear-gradient(90deg, #b9a5ff, #76f0df);
+    }
+
+    .caption {
+      margin-top: 1rem;
+      color: #8989a7;
+      font-size: .75rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(18px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="sparkle" aria-hidden="true">✦</div>
+    <h1><span>Hello,</span><br>world!</h1>
+    <p>A little beginning with a little extra sparkle.<br>Here’s to what you make next.</p>
+    <div class="rule" aria-hidden="true"></div>
+    <div class="caption">Made with a bit of wonder</div>
+  </main>
+</body>
+</html>
