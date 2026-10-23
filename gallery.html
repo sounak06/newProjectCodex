@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101126">
+  <title>Gallery ✦</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #101126; color: #f8f7ff; }
+    * { box-sizing: border-box; }
+    body { min-height: 100svh; margin: 0; padding: 6rem 1.5rem 3rem; background: radial-gradient(ellipse at 18% 20%, #7448ff55, transparent 38%), radial-gradient(ellipse at 82% 76%, #00d4c055, transparent 34%), linear-gradient(135deg, #111226, #17152e 52%, #101b2a); }
+    body::before, body::after { content: ""; position: fixed; z-index: -1; width: 22rem; aspect-ratio: 1; border: 1px solid #ffffff12; border-radius: 50%; pointer-events: none; }
+    body::before { top: -11rem; right: -7rem; box-shadow: 0 0 0 2.5rem #ffffff05, 0 0 0 5rem #ffffff03; }
+    body::after { bottom: -15rem; left: -8rem; width: 30rem; box-shadow: 0 0 0 3rem #ffffff04; }
+    nav { position: fixed; z-index: 2; top: 1.25rem; left: 50%; display: flex; gap: .2rem; padding: .4rem; transform: translateX(-50%); border: 1px solid #ffffff20; border-radius: 999px; background: #111226cc; backdrop-filter: blur(16px); }
+    nav a { padding: .65rem .9rem; border-radius: 999px; color: #c6c6dd; font-size: .9rem; text-decoration: none; transition: color 180ms ease, background 180ms ease; }
+    nav a:hover, nav a[aria-current="page"] { color: #fff; background: #ffffff16; }
+    nav a:focus-visible { outline: 2px solid #76f0df; outline-offset: 3px; }
+    main { position: relative; width: min(100%, 1000px); margin: 0 auto; padding: clamp(1.5rem, 5vw, 3.5rem); border: 1px solid #ffffff24; border-radius: 2rem; background: linear-gradient(145deg, #ffffff12, #ffffff06); box-shadow: 0 30px 100px #05061188, inset 0 1px #ffffff20; backdrop-filter: blur(20px); animation: arrive 800ms cubic-bezier(.2,.8,.2,1) both; }
+    .eyebrow { margin: 0 0 .75rem; color: #9e9bb8; font-size: .75rem; letter-spacing: .18em; text-align: center; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2.75rem, 8vw, 5rem); line-height: 1.05; letter-spacing: -.065em; text-align: center; }
+    h1 span { color: transparent; background: linear-gradient(100deg, #b9a5ff 10%, #76f0df 90%); background-clip: text; -webkit-background-clip: text; }
+    .intro { max-width: 34rem; margin: 1rem auto 2.5rem; color: #c6c6dd; font-size: 1.05rem; line-height: 1.7; text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .art { position: relative; display: grid; min-height: 220px; overflow: hidden; place-items: center; border: 1px solid #ffffff20; border-radius: 1.35rem; isolation: isolate; }
+    .art::before, .art::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; }
+    .art::before { width: 12rem; aspect-ratio: 1; background: #ffffff18; filter: blur(1px); }
+    .art::after { width: 7rem; aspect-ratio: 1; border: 1px solid #ffffff45; box-shadow: 0 0 40px #ffffff20, inset 0 0 30px #ffffff12; }
+    .art span { color: #fff; font-size: 3rem; filter: drop-shadow(0 8px 22px #08081777); }
+    .art-one { background: radial-gradient(circle at 50% 45%, #ba9cff, #7c4eff 48%, #30204f); }
+    .art-one::before { background: linear-gradient(135deg, #ffe5af, #ff9dce); transform: translate(-2.5rem, -1.25rem); }
+    .art-two { background: radial-gradient(circle at 45% 40%, #76e9d2, #208c9a 48%, #152943); }
+    .art-two::before { width: 14rem; background: linear-gradient(135deg, #b1fff0aa, #42cbd455); transform: translate(2rem, 2rem); }
+    .art-three { background: radial-gradient(circle at 50% 45%, #ffc878, #e16b79 48%, #4a244f); }
+    .art-three::before { width: 10rem; background: linear-gradient(135deg, #fff2b5, #ff9b74); transform: translate(-2rem, 1.5rem); }
+    .art-four { background: radial-gradient(circle at 50% 45%, #8fb8ff, #5267b9 48%, #222446); }
+    .art-four::before { width: 14rem; background: linear-gradient(135deg, #d5f0ff, #9b9cff); transform: translate(2rem, -2rem); }
+    .art-five { background: radial-gradient(circle at 50% 45%, #f4a5d2, #a94da0 48%, #321f51); }
+    .art-five::before { width: 11rem; background: linear-gradient(135deg, #ffe1f1, #ef9fff); transform: translate(-1.5rem, -1.5rem); }
+    .art-six { background: radial-gradient(circle at 50% 45%, #93e8a6, #398976 48%, #18354a); }
+    .art-six::before { width: 13rem; background: linear-gradient(135deg, #d7ffb0, #73edcc); transform: translate(1rem, 2rem); }
+    .tile-title { margin: .9rem 0 0 .25rem; color: #e6e3f5; font-size: .9rem; font-weight: 550; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 700px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .art { min-height: 190px; } }
+    @media (max-width: 440px) { body { padding-inline: 1rem; } nav { gap: 0; } nav a { padding-inline: .65rem; font-size: .82rem; } .grid { gap: .7rem; } .art { min-height: 150px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <p class="eyebrow">A collection of colorful moments</p>
+    <h1><span>The</span> gallery</h1>
+    <p class="intro">A little inspiration board made of color, light, and imagination. Pick a favorite mood and make it your own.</p>
+    <section class="grid" aria-label="Abstract artwork collection">
+      <article><div class="art art-one" role="img" aria-label="Violet and rose abstract glow"><span>✦</span></div><h2 class="tile-title">Stardust</h2></article>
+      <article><div class="art art-two" role="img" aria-label="Aqua and teal abstract glow"><span>〰</span></div><h2 class="tile-title">Still water</h2></article>
+      <article><div class="art art-three" role="img" aria-label="Warm peach and coral abstract glow"><span>☼</span></div><h2 class="tile-title">Golden hour</h2></article>
+      <article><div class="art art-four" role="img" aria-label="Blue and periwinkle abstract glow"><span>✧</span></div><h2 class="tile-title">Blue hour</h2></article>
+      <article><div class="art art-five" role="img" aria-label="Pink and lilac abstract glow"><span>❋</span></div><h2 class="tile-title">Daydream</h2></article>
+      <article><div class="art art-six" role="img" aria-label="Mint and emerald abstract glow"><span>❈</span></div><h2 class="tile-title">New growth</h2></article>
+    </section>
+  </main>
+</body>
+</html>
